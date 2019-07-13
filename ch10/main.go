@@ -23,6 +23,8 @@ func main() {
 	fmt.Printf("v=%f\n", v)
 }
 
+// op为变量：即op
+// 从func弄好到逗号前的参数为类型，如 func(float64, float64) float64
 func com(op func(float64, float64) float64, a, b float64) float64 {
 	return op(a, b)
 }
