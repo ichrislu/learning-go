@@ -20,10 +20,17 @@ func main() {
 	} else {
 		fmt.Println(result)
 	}
+
+	fmt.Println("===================")
+
+	// defer在方法调用结束后，return调用前执行
+	// 多个defer同时存在时，是以栈的形式，先进后出，FILO
+	// 多用于释放资源（个人理解应该是确保释放资源，因为资源不用应该及时释放，而不是依赖于defer，defer的存在只是为了确保方法完成后资源会释放）
 }
 
 func computeDiv(d *Divide) (result int, err error) {
 	if d.divider == 0 {
+		// 因为Divide实现了Error方法，也就实现了error
 		err = d
 	} else {
 		result = d.dividee / d.divider
